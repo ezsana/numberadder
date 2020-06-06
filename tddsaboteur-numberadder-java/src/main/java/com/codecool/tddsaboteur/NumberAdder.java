@@ -23,7 +23,16 @@ package com.codecool.tddsaboteur;
 public class NumberAdder {
 
     public int addNumbers(String numberList) throws Exception {
+        if (numberList == null || numberList.isEmpty()) {
+            throw new StringEmptyException("Empty string or null.");
+        }
+        String regex = ".*[^\\d\\s,\\-].*";
+        if (numberList.matches(regex)) {
+            throw new InvalidStringException("Invalid string.");
+        }
+        String reg = "(\\-\\d*)";
         return 0;
     }
+
 
 }
